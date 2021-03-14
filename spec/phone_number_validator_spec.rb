@@ -22,4 +22,12 @@ describe PhoneNumberFormatValidator do
     expect(invalid_person_one).not_to be_valid
     expect(invalid_person_two).not_to be_valid
   end
+
+  it "validates with correct phone number formatting" do
+    valid_person_one = TestPerson.new(phone_number: "7777777777")
+    valid_person_two = TestPerson.new(phone_number: "777-777-7777 ext 888")
+
+    expect(valid_person_one).to be_valid
+    expect(valid_person_two).to be_valid
+  end
 end
